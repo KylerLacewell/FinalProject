@@ -1,0 +1,10 @@
+The main purpose of the code is to replicate a traffic light sequence, and have a button available to press for pedestrians.
+The traffic light sequence works on its own, but once the button was introduced it created some issues. It took me awhile to figure out
+how to make the function able to accept input from the button. Instead of a sleep command, I decided to go with a button.wait_for_press(5) command
+with 5 being the sleep duration. If the button is pressed in this time, it would finish the traffic light sequence, and give a countdown with an extended
+red light timer. This worked fine until I realized that after this crosswalk function runs, it would continue from where it was previously interrupted.
+Basically, if you press the button during green, it will go through yellow and red, give the countdown, and after the countdown is over the light will go
+back to yellow, because the button was pressed during green, which runs a function and then spits you back out into the main function. I could not figure
+out how to combat this from happening. I tried creating a variable at the end of my sleep functions, setting it to true so that way I could enter an
+if statement into my while loop. If x == True, continue. This would ensure that the loop would restart from the beginning and run properly, but I couldn't
+get that to work.
